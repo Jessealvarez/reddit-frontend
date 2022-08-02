@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Reddit clone - Front End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A brief description of what this project does and who it's for
 
-## Available Scripts
+## First Week Functionalities
 
-In the project directory, you can run:
+*Set up DB to hold posts data
+*Built framework for Site - pages, post submission page, modal, etc
 
-### `npm start`
+## Expectations for finished project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Core]
+  - A user should be able to create a new ticket and edit an existing a ticket.
+    - [Stretch] There should be a page or modal for users to create new tickets.
+    - [Stretch] A user should be able to create and edit the following fields on a ticket:
+      - title {String}
+      - description {String}
+      - relatedTicketIds {uuid[]}
+      - assignedToUserId {uuid}
+      - status {String}
+      - createdAt {Date}
+      - createdById {uuid}
+      - lastModified {Date}
+      - lastUpdatedById {uuid}
+  - A user should be able to delete a ticket.
+  - A user should be able to see a list of their tickets.
+    - [Stretch] The ticket list should be sortable and filterable.
+    - [Stretch] The ticket list should be paginated.
+    - [Stretch] If a user clicks a ticket title, it should bring up a quick edit modal of the ticket.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Super Stretch Goals
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add support for users to be part of an organization.
+- Add support for admin users in an organization to have authorized privileges that basic users do not.
+- A user should be able to attach a file to a ticket.
+- Add support for users to add comments onto a ticket.
+- Add support for users to tag other users in a comment.
+- Integrate any third party API
