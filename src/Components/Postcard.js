@@ -13,10 +13,17 @@ const Postcard = (props) => {
       </p>
       <p>
         <span>
+          <strong> Body: </strong>
+          <br />
+        </span>
+        {post.text}
+      </p>
+      <p>
+        <span>
           <strong> Author: </strong>
           <br />
         </span>
-        {post.body}
+        {post.author}
       </p>
       <p>
         <span>

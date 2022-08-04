@@ -1,12 +1,10 @@
-//do I need to import React?
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-//need to import a submitNewPost() function from a different hook?
-const NewPost = () => {
+const NewPost = (postSubmit) => {
   const [postTitle, setPostTitle] = useState("title");
-  const [postBody, setPostBody] = useState("body");
+  const [postText, setPostText] = useState("text");
 
   return (
     <div>
@@ -17,17 +15,20 @@ const NewPost = () => {
         onChange={(e) => setPostTitle(e.target.value)}
       ></input>
       <br />
-      <label>Body</label>
+      <label>Text</label>
       <input
         type="text"
-        placeholder="Body"
-        onChange={(e) => setPostBody(e.target.value)}
+        placeholder="text"
+        onChange={(e) => setPostText(e.target.value)}
       ></input>
       <br />
       <button
         type="submit"
         onClick={async () => {
-          submitNewPost();
+          postSubmit({
+            title: postTitle,
+            author: postText,
+          });
         }}
       >
         Submit
