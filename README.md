@@ -9,6 +9,7 @@
 Reddit Clone
 
 Functionality
+
     [Core] User can register and create a custom Login
     [Core] User can create posts 
     [Core] User can comment on posts
