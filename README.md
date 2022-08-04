@@ -2,34 +2,25 @@
 ## First Week Functionalities
 
 *Set up DB to hold posts data
-*Built framework for Site - pages, post submission page, modal, etc
+*Built framework for Site - login pages, post submission page, homepage, etc
 
 ## Expectations for finished project
 
-- [Core]
-  - A user should be able to create a new ticket and edit an existing a ticket.
-    - [Stretch] There should be a page or modal for users to create new tickets.
-    - [Stretch] A user should be able to create and edit the following fields on a ticket:
-      - title {String}
-      - description {String}
-      - relatedTicketIds {uuid[]}
-      - assignedToUserId {uuid}
-      - status {String}
-      - createdAt {Date}
-      - createdById {uuid}
-      - lastModified {Date}
-      - lastUpdatedById {uuid}
-  - A user should be able to delete a ticket.
-  - A user should be able to see a list of their tickets.
-    - [Stretch] The ticket list should be sortable and filterable.
-    - [Stretch] The ticket list should be paginated.
-    - [Stretch] If a user clicks a ticket title, it should bring up a quick edit modal of the ticket.
+Reddit Clone
 
-### Super Stretch Goals
+Functionality
+    [Core] User can register and create a custom Login
+    [Core] User can create posts 
+    [Core] User can comment on posts
+    [Core] User can create and join communities
+    
+    [Stretch] User can edit their own comment
+    [Stretch]User profile input
+        Profile Picture
+        Name
+        Basic Info
+    [Stretch] Favorite posts and communities
+    [Super Stretch] User/Moderator can manage communities
+        Moderate comments and users in the community
+    [Super Stretch] Nested comment chains
 
-- Add support for users to be part of an organization.
-- Add support for admin users in an organization to have authorized privileges that basic users do not.
-- A user should be able to attach a file to a ticket.
-- Add support for users to add comments onto a ticket.
-- Add support for users to tag other users in a comment.
-- Integrate any third party API
