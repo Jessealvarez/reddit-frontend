@@ -13,7 +13,6 @@ Functionality
     [Core] User can create posts 
     [Core] User can comment on posts
     [Core] User can create and join communities
-    
     [Stretch] User can edit their own comment
     [Stretch]User profile input
         Profile Picture
