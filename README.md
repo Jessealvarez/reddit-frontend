@@ -1,7 +1,4 @@
-# Reddit clone - Front End
-
-A brief description of what this project does and who it's for
-
+# Reddit clone 
 ## First Week Functionalities
 
 *Set up DB to hold posts data
