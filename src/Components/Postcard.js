@@ -42,7 +42,7 @@ const Postcard = (props) => {
       <button
         onClick={async () => {
           //make SURE that i add .id when creating new posts to db
-          await deletePost(Post.id);
+          await deletePost(post.id);
         }}
       >
         Delete
