@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Modal.css";
+import { Button } from "react-bootstrap";
 
 const Modal = (props) => {
-  // const { putUpdatedBlog } = props;
+  const navigate = useNavigate();
   if (!props.show) {
     return <></>;
   }
@@ -11,21 +13,25 @@ const Modal = (props) => {
     <div className="modal" onClick={props.onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h4 className="modal-title">{props.title}</h4>
+          <h4 className="modal-title">Post Editor</h4>
         </div>
         <div className="modal-body">{props.children}</div>
         <div className="modal-footer">
-          <button
+          <Button
+            type="button"
+            class="btn btn primary"
             onClick={() => {
               props.putUpdatedPost();
               props.onClose();
+              navigate("/homepage");
+              window.location.reload();
             }}
           >
-            Update Blog
-          </button>
-          <button onClick={props.onClose} className="button">
+            Update
+          </Button>
+          <Button type="button" class="btn btn-primary" onClick={props.onClose}>
             Close
-          </button>
+          </Button>
         </div>
       </div>
     </div>

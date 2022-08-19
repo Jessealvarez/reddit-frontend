@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "../Components/NavBar";
 import Postcard from "../Components/Postcard";
 import { useState } from "react";
 import Modal from "../Components/Modal";
@@ -8,9 +9,9 @@ const PostManager = (props) => {
 
   const [showModal, setShowModal] = useState(false);
   const [editTitle, setEditTitle] = useState("");
-  const [editAuthor, setEditAuthor] = useState("");
+  // const [editAuthor, setEditAuthor] = useState("");
   const [editText, setEditText] = useState("");
-  const [editBlogId, setEditBlogId] = useState(null);
+  const [editPostId, setEditPostId] = useState(null);
 
   const putUpdatedPost = async () => {
     const url = `${urlEndpoint}/admin/edit-post`;
@@ -20,9 +21,8 @@ const PostManager = (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        postId: editBlogId,
+        postId: editPostId,
         title: editTitle,
-        author: editAuthor,
         text: editText,
       }),
     });
@@ -31,14 +31,15 @@ const PostManager = (props) => {
   };
   return (
     <div>
-      <h1>Post Manager</h1>
+      <div>
+        <NavBar />
+      </div>
       <Modal
         title={editTitle}
         onClose={() => setShowModal(false)}
         show={showModal}
         putUpdatedPost={putUpdatedPost}
       >
-        <label>Title</label>
         <input
           type="text"
           value={editTitle}
@@ -46,9 +47,9 @@ const PostManager = (props) => {
             setEditTitle(e.target.value);
           }}
         />
-        <br />
-        <label>Text</label>
+        <div className="small-divider"></div>
         <textarea
+          rows="8"
           value={editText}
           onChange={(e) => {
             setEditText(e.target.value);
@@ -59,9 +60,8 @@ const PostManager = (props) => {
         const fetchPostAndShow = async () => {
           const redditPost = await fetchSinglePost(post.id);
           setEditTitle(redditPost.title);
-          setEditAuthor(redditPost.author);
           setEditText(redditPost.text);
-          setEditBlogId(post.id);
+          setEditPostId(post.id);
           setShowModal(true);
         };
         return (

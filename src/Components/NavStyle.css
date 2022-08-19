@@ -1,0 +1,29 @@
+.navbar {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  text-decoration: none;
+}
+.nav-option {
+  text-decoration: none;
+  display: flex;
+  gap: 1rem;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+body {
+  margin: 0;
+}
