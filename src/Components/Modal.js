@@ -19,17 +19,21 @@ const Modal = (props) => {
         <div className="modal-footer">
           <Button
             type="button"
-            class="btn btn primary"
+            className="btn btn primary"
             onClick={() => {
               props.putUpdatedPost();
               props.onClose();
-              navigate("/homepage");
+              navigate("/");
               window.location.reload();
             }}
           >
             Update
           </Button>
-          <Button type="button" class="btn btn-primary" onClick={props.onClose}>
+          <Button
+            type="button"
+            className="btn btn-primary"
+            onClick={props.onClose}
+          >
             Close
           </Button>
         </div>

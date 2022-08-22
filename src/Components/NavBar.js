@@ -38,7 +38,7 @@ const NavBar = ({ isAuthLoading, setIsAuthLoading }) => {
         <div>
           <Button
             type="button"
-            class="btn btn-danger"
+            className="btn btn-danger"
             onClick={() => {
               logoutUser();
             }}

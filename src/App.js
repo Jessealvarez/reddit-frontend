@@ -18,15 +18,17 @@ import NewComment from "./Hooks/NewComment";
 const urlEndpoint = "http://localhost:4000";
 
 function App() {
-  const [serverJSON, setServerJSON] = useState({ message: [] });
+  const [serverPosts, setServerPosts] = useState({ message: [] });
   const [isFetching, setIsFetching] = useState(false);
   const [adminPostList, setAdminPostList] = useState({ message: [] });
   const [adminPostsLoading, setAdminPostsLoading] = useState(false);
   const [isAuthLoading, setIsAuthLoading] = useState(false);
 
   const postSubmit = async (post) => {
+    console.log("post submitted");
+
     setIsFetching(true);
-    const url = `${urlEndpoint}/new-post`;
+    const url = `${urlEndpoint}/posts/post-submit`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -36,6 +38,9 @@ function App() {
     });
     const responseJSON = await response.json();
     setIsFetching(false);
+
+    console.log("responseJOSN", responseJSON);
+
     return responseJSON;
   };
 
@@ -44,19 +49,7 @@ function App() {
       const url = `${urlEndpoint}/posts/all-posts`;
       const apiResponse = await fetch(url);
       const apiJSON = await apiResponse.json();
-      setServerJSON(apiJSON);
-      return;
-    };
-    fetchData();
-  }, [isFetching]);
-
-  //all comments
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = `${urlEndpoint}/comments/all-comments`;
-      const apiResponse = await fetch(url);
-      const apiJSON = await apiResponse.json();
-      setServerJSON(apiJSON);
+      setServerPosts(apiJSON);
       return;
     };
     fetchData();
@@ -114,17 +107,10 @@ function App() {
           path="/"
           element={
             <PostsPage
-              posts={serverJSON.message}
+              posts={serverPosts.message}
               isAuthLoading={isAuthLoading}
               setIsAuthLoading={setIsAuthLoading}
-              addComment={addComment}
             />
-          }
-        />
-        <Route
-          path="/homepage"
-          element={
-            <PostsPage posts={serverJSON.message} addComment={addComment} />
           }
         />
         <Route
@@ -170,12 +156,8 @@ function App() {
         />
         <Route
           path="/single-post/:postId"
-          element={<SinglePage urlEndpoint={urlEndpoint} />}
-        />
-        <Route
-          path="/all-comments"
           element={
-            <Comments urlEndpoint={urlEndpoint} comments={serverJSON.message} />
+            <SinglePage urlEndpoint={urlEndpoint} addComment={addComment} />
           }
         />
       </Routes>

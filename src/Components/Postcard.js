@@ -16,7 +16,7 @@ const Postcard = (props) => {
           <Card.Text>Last Modified: {post.lastModified} </Card.Text>
           <button
             type="button"
-            class="btn btn-danger"
+            className="btn btn-danger"
             onClick={async () => {
               //make SURE that i add .id when creating new posts to db
               await deletePost(post.id);
@@ -27,7 +27,7 @@ const Postcard = (props) => {
 
           <button
             type="button"
-            class="btn btn-primary"
+            className="btn btn-primary"
             onClick={async () => {
               await fetchPostAndShow();
             }}

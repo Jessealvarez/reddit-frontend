@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import NavBar from "../Components/NavBar";
+// import { post } from "../../../reddit-backend/routes/comments";
 
 const NewPost = ({ postSubmit }) => {
   const [postTitle, setPostTitle] = useState("title");
@@ -35,11 +36,12 @@ const NewPost = ({ postSubmit }) => {
           variant="primary"
           type="submit"
           onClick={async () => {
+            console.log(postText, postTitle);
             postSubmit({
               title: postTitle,
               text: postText,
             });
-            navigate("/homepage");
+            navigate("/");
           }}
         >
           Submit
@@ -47,28 +49,28 @@ const NewPost = ({ postSubmit }) => {
       </Form>
 
       {/* <Form>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             Title
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="new-post-title"
             placeholder="Title goes here..."
             onChange={(e) => setPostTitle(e.target.value)}
           />
         </div>
-        <div class="mb-3">
+        <div className="mb-3">
           <label
             for="exampleFormControlTextarea1"
-            class="form-label"
+            className="form-label"
             onChange={(e) => setPostText(e.target.value)}
           >
             Example textarea
           </label>
           <textarea
-            class="form-control"
+            className="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
           ></textarea>

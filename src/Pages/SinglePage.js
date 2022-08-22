@@ -5,14 +5,17 @@ import NavBar from "../Components/NavBar";
 import ActionBar from "../Components/ActionBar";
 import { Card } from "react-bootstrap";
 import NewComment from "../Hooks/NewComment";
-// import Comments from "../Components/Comments";
+import Comments from "../Components/Comments";
+import DisplayPost from "../Components/DisplayPost";
+// import { set } from "../../../reddit-backend/app";
 
-const SinglePage = ({ urlEndpoint }) => {
+const SinglePage = ({ urlEndpoint, addComment }) => {
   const params = useParams();
   const postId = params.postId;
 
   const [post, setPost] = useState({});
-
+  const [serverComments, setServerComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       const url = `${urlEndpoint}/posts/single-post/${postId}`;
@@ -23,6 +26,19 @@ const SinglePage = ({ urlEndpoint }) => {
     };
     fetchData();
   }, []);
+
+  //all comments
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = `${urlEndpoint}/comments/get-comments/${postId}`;
+      const apiResponse = await fetch(url);
+      const apiJSON = await apiResponse.json();
+      setServerComments(apiJSON.post.postComments);
+      console.log(apiJSON);
+      return;
+    };
+    fetchData();
+  }, [isLoading]);
 
   return (
     <div>
@@ -35,29 +51,19 @@ const SinglePage = ({ urlEndpoint }) => {
           <ActionBar />
         </div>
         <div>
-          <DisplayPost post={post} />
+          <DisplayPost
+            post={post}
+            addComment={addComment}
+            commentEnabled={true}
+            redirectEnabled={false}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+          />
         </div>
-        {/* <>
-          <Comments />
-        </> */}
+        <Comments comments={serverComments} />
       </div>
     </div>
   );
 };
 
-const DisplayPost = ({ post, comment, addComment }) => {
-  return (
-    <div className="posty">
-      <Card style={{ width: "30rem" }}>
-        <Card.Body>
-          <Card.Title>{post.title}</Card.Title>
-          <Card.Text>{post.id}</Card.Text>
-          <Card.Text>{post.text}</Card.Text>
-          <Card.Text>Posted:{post.createdAt}</Card.Text>
-          <NewComment addComment={addComment} post={post} />
-        </Card.Body>
-      </Card>
-    </div>
-  );
-};
 export default SinglePage;

@@ -3,7 +3,8 @@ import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import NavBar from "../Components/NavBar";
 import ActionBar from "../Components/ActionBar";
-import NewComment from "../Hooks/NewComment";
+import DisplayPost from "../Components/DisplayPost";
+
 // import Moment from "react-moment"
 // import NewPost from "./NewPost";
 
@@ -22,13 +23,13 @@ const PostsPage = ({ posts, comments, addComment }) => {
 
       {/* <h1>Posts Feed</h1> */}
       <div>
-        {posts.map((post, comment) => {
+        {posts.map((post, index) => {
           return (
             <DisplayPost
               post={post}
-              comment={comment}
-              addComment={addComment}
-              key={post.id}
+              key={index}
+              commentEnabled={false}
+              redirectEnabled={true}
             />
           );
         })}
@@ -37,23 +38,23 @@ const PostsPage = ({ posts, comments, addComment }) => {
   );
 };
 
-const DisplayPost = ({ post, comment, addComment }) => {
-  return (
-    <div className="posty">
-      <Card style={{ width: "30rem" }}>
-        <Card.Body>
-          {/* <Card.Title>{post.title}</Card.Title> */}
-          <a href={`/single-post/${post.id}`} className="post-title">
-            {post.title}
-          </a>
-          <Card.Text>{post.id}</Card.Text>
-          <Card.Text>{post.text}</Card.Text>
-          <Card.Text>Posted:{post.createdAt}</Card.Text>
-        </Card.Body>
-      </Card>
-    </div>
-  );
-};
+// const DisplayPost = ({ post, comment, addComment }) => {
+//   return (
+//     <div className="posty">
+//       <Card style={{ width: "30rem" }}>
+//         <Card.Body>
+//           {/* <Card.Title>{post.title}</Card.Title> */}
+//           <a href={`/single-post/${post.id}`} className="post-title">
+//             {post.title}
+//           </a>
+//           <Card.Text>{post.id}</Card.Text>
+//           <Card.Text>{post.text}</Card.Text>
+//           <Card.Text>Posted:{post.createdAt}</Card.Text>
+//         </Card.Body>
+//       </Card>
+//     </div>
+//   );
+// };
 
 // const DisplayComments = ({ comment }) => {
 //   return (

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-const NewComment = ({ addComment, post }) => {
+const NewComment = ({ addComment, post, isLoading, setIsLoading }) => {
   const [comment, setComment] = useState("");
   const navigate = useNavigate();
   console.log({ comment });
@@ -18,16 +18,16 @@ const NewComment = ({ addComment, post }) => {
       ></input>
       <Button
         type="submit"
-        class="btn btn-primary"
-        className="comment-button"
+        className="btn btn-primary comment-button"
         onClick={async () => {
+          setIsLoading(true);
           await addComment(
             {
               text: comment,
             },
             post.id
           );
-          navigate("/posts/");
+          setIsLoading(false); //refresh
         }}
       >
         Comment

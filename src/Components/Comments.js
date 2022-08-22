@@ -4,9 +4,10 @@ import { Card } from "react-bootstrap";
 const Comments = ({ comments }) => {
   return (
     <div>
-      {comments.map((comment) => {
-        return <DisplayComment comment={comment} key={comment.id} />;
-      })}
+      {comments &&
+        comments.map((comment) => {
+          return <DisplayComment comment={comment} key={comment.id} />;
+        })}
     </div>
   );
 };

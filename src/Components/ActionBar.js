@@ -13,7 +13,7 @@ function ActionBar() {
         </li>
         <li>
           <Link className="nav-option" to="/post-manager">
-            Edit Post
+            Post Manager
           </Link>
         </li>
         <Outlet />

@@ -56,7 +56,7 @@ const PostManager = (props) => {
           }}
         />
       </Modal>
-      {adminPostList.map((post) => {
+      {adminPostList.map((post, idx) => {
         const fetchPostAndShow = async () => {
           const redditPost = await fetchSinglePost(post.id);
           setEditTitle(redditPost.title);
@@ -67,7 +67,7 @@ const PostManager = (props) => {
         return (
           <Postcard
             post={post}
-            key={post.id}
+            key={idx}
             deletePost={deletePost}
             fetchPostAndShow={fetchPostAndShow}
           />
