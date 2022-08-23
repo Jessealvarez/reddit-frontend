@@ -1,20 +1,28 @@
 .App {
   text-align: center;
   justify-content: center;
+  background-color: lightgray;
 }
 
 /*bootstrap stuff */
 .registration-card {
   align-content: center;
 }
+#login-page {
+  justify-content: center;
+}
 
 /* .posts-page {
   background-color: pink;
 } */
 
-/* #new-post-form {
-  background-color: blue;
-} */
+#new-post-form {
+  height: 100vh;
+}
+
+#new-post-form.input {
+  justify-content: center;
+}
 
 .posty {
   display: flex;
@@ -25,7 +33,7 @@
 }
 
 .divider {
-  padding: 40px;
+  padding: 10px;
 }
 .small-divider {
   margin-bottom: 5px;
@@ -40,11 +48,11 @@ form {
   margin-left: 25%;
   padding: 0;
 }
-.form-control {
+/* .form-control {
   width: 30rem;
-}
+} */
 #formBasicBody {
-  height: 10rem;
+  height: 20rem;
 }
 #post-manager {
   display: flex;
@@ -52,9 +60,19 @@ form {
   align-items: center;
   justify-content: space-between;
   width: 50%;
-  margin-left: 25%;
+  margin-left: 30%;
+  margin-bottom: 15px;
 }
 
+#post-manager.card {
+  border-style: solid;
+  border-color: darkgray;
+  border-radius: 5px;
+}
 .App-link {
   color: #61dafb;
+}
+
+#post-manager button {
+  margin: 0 10px;
 }

@@ -26,9 +26,9 @@ const NewPost = ({ postSubmit }) => {
 
         <Form.Group className="mb-1" controlId="formBasicBody">
           <Form.Control
-            as="textarea"
-            placeholder="What's on your mind?"
-            rows={3}
+            type="text"
+            // placeholder="What's on your mind?"
+            // rows={2}
             onChange={(e) => setPostText(e.target.value)}
           />
         </Form.Group>

@@ -17,7 +17,7 @@ const DisplayPost = ({
       <Card style={{ width: "30rem" }}>
         <Card.Body>
           <Card.Title>{post.title}</Card.Title>
-          <Card.Text>{post.id}</Card.Text>
+          {/* <Card.Text>{post.id}</Card.Text> */}
           <Card.Text>{post.text}</Card.Text>
           <Card.Text>Posted:{post.createdAt}</Card.Text>
 

@@ -9,8 +9,8 @@ const Postcard = (props) => {
       <div id="divider"></div>
       <Card style={{ width: "30rem" }} id="post-manager">
         <Card.Body>
-          <Card.Title>Title: {post.title}</Card.Title>
-          <Card.Text>Post: {post.text}</Card.Text>
+          <Card.Title>{post.title}</Card.Title>
+          {/* <Card.Text>Post: {post.text}</Card.Text> */}
           {/* <Card.Text>Author: {post.author}</Card.Text> */}
           <Card.Text>Created at: {post.createdAt} </Card.Text>
           <Card.Text>Last Modified: {post.lastModified} </Card.Text>

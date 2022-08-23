@@ -3,6 +3,7 @@ import NavBar from "../Components/NavBar";
 import { useState } from "react";
 import { loginUser } from "../Auth";
 import { useNavigate } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 
 const LoginPage = ({ setIsAuthLoading, isAuthLoading }) => {
   const [username, setUsername] = useState("");
@@ -13,8 +14,35 @@ const LoginPage = ({ setIsAuthLoading, isAuthLoading }) => {
     <div>
       <NavBar />
       <div className="divider"></div>
-      <div>
-        <label>Username:</label>
+      <div id="login-page">
+        <Form.Group className="mb-3" controlId="formBasicInput">
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            className="text-center"
+            type="input"
+            placeholder="Enter a username:"
+            value={username}
+            onChange={(event) => {
+              const newUserName = event.target.value;
+              setUsername(newUserName);
+            }}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            className="text-center"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(event) => {
+              const newPassword = event.target.value;
+              setPassword(newPassword);
+            }}
+          />
+        </Form.Group>
+        {/* <label>Username:</label>
         <input
           type="text"
           value={username}
@@ -25,9 +53,9 @@ const LoginPage = ({ setIsAuthLoading, isAuthLoading }) => {
         ></input>
 
         <br />
-        <br />
+        <br /> */}
 
-        <label>Password:</label>
+        {/* <label>Password:</label>
         <input
           type="password"
           value={password}
@@ -38,9 +66,9 @@ const LoginPage = ({ setIsAuthLoading, isAuthLoading }) => {
         ></input>
 
         <br />
-        <br />
+        <br /> */}
 
-        <button
+        <Button
           id="login"
           type="submit"
           onClick={async () => {
@@ -53,7 +81,7 @@ const LoginPage = ({ setIsAuthLoading, isAuthLoading }) => {
           }}
         >
           Login
-        </button>
+        </Button>
       </div>
     </div>
   );

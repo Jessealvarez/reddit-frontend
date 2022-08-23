@@ -3,15 +3,22 @@
   justify-content: center;
 }
 .action-bar {
-  background-color: black;
+  background-color: white;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding: 0 1rem;
-  width: 30%;
+  padding: 0;
+  width: 478px;
+  border-style: solid;
+  border-color: darkgray;
+  border-radius: 5px;
 }
 .nav-option {
   text-decoration: none;
   display: flex;
   gap: 1rem;
+}
+
+.action-bar button {
+  margin: 1rem;
 }

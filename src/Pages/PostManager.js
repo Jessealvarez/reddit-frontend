@@ -34,6 +34,7 @@ const PostManager = (props) => {
       <div>
         <NavBar />
       </div>
+      <div className="divider"></div>
       <Modal
         title={editTitle}
         onClose={() => setShowModal(false)}
